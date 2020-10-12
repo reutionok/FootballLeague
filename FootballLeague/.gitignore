@@ -1,0 +1,11 @@
+ci/
+testresults/
+docker/dockerfile/*
+!docker/dockerfile/dockerfile
+.vs/
+bin/
+obj/
+specs/api/openapi-specification.html
+*.user
+!*.user/
+*.db

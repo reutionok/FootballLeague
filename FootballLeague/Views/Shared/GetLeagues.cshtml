@@ -1,0 +1,31 @@
+﻿@model List<FootballLeague.Models.League>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+<div class="well">
+    <h3>
+        <strong>@item.Name</strong>
+    </h3>
+
+    <p>
+        Matches:<br />
+        @foreach (var match in item.Matches)
+        {
+    <p>
+        @match.Round
+    </p>
+    <p>
+        @match.Date
+    </p>
+    <p>
+        @match.Team1 <b> @match.Score.Ft[0]</b> : <b> @match.Score.Ft[1]</b> @match.Team2
+    </p>
+    <br />
+         }
+
+    </div>
+}

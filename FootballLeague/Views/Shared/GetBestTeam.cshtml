@@ -1,0 +1,16 @@
+﻿@model List<FootballLeague.Models.Team>
+    
+    @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    @foreach (var item in Model)
+{
+<div class="well">
+    <p>
+        <b> @item.LeagueName :</b>
+        @item.Name
+    </p>
+</div>
+    }
+
