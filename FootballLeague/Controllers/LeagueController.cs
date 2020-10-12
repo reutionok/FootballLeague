@@ -24,6 +24,7 @@ namespace FootballLeague.Controllers
             string[] files = new string[] { "en.1.json", "en.2.json", "en.3.json" };
             List<League> leagues = new List<League>();
             List<Match> matches = new List<Match>();
+            List<Match> bestDays = new List<Match>();
             for (int l = 0; l < 3; l++)
             {
                 leagues = JsonConvert.DeserializeObject<List<League>>(readWrite.Read(files[l], "data"));
@@ -33,13 +34,14 @@ namespace FootballLeague.Controllers
 
                     for (int i = 0; i < leagues[j].Matches.Count; i++)
                     {
-                        matches.Add(leagues[j].Matches[i]);
+                        matches.Add(new Match { leagueName=leagues[j].Name, Round=leagues[j].Matches[i].Round, Date= leagues[j].Matches[i].Date, Team1= leagues[j].Matches[i].Team1, Team2= leagues[j].Matches[i].Team2, Score= leagues[j].Matches[i].Score });
                     }
                 }
-            
+                bestDays.AddRange(matches.Where(m => m.Score.Ft[0] + m.Score.Ft[1] == matches.Max(m => m.Score.Ft[0] + m.Score.Ft[1])));
+                matches.Clear();
             }
 
-                return View();
+                return View(bestDays);
         }
 
         public IActionResult GetBestAttackTeam()

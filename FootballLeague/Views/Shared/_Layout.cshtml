@@ -13,10 +13,7 @@
     <div class="row panel">
         <div id="categories" class="col-xs-4">
             <p class="btn btn-block btn-default btn-lg">
-                @Html.ActionLink("Всі ліги ", "GetLeagues", "Home")
-            </p>
-            <p class="btn btn-block btn-default btn-lg">
-                @Html.ActionLink("Найрезультативніший день ", "GetBestDay")
+                @Html.ActionLink("Найрезультативніші дні ", "GetBestDay", "League")
             </p>
             <p class="btn btn-block btn-default btn-lg">
                 @Html.ActionLink("Найкращі атакуючі команди", "GetBestAttackTeam", "League")
@@ -25,7 +22,7 @@
                 @Html.ActionLink("Найкращі захисні команди", "GetBestProtectionTeam", "League")
             </p>
             <p class="btn btn-block btn-default btn-lg">
-                @Html.ActionLink("Найкращі команди за показником  забиті-прапущені", "GetBestTeam", "League")
+                @Html.ActionLink("Найкращі команди за показником забиті-прапущені", "GetBestTeam", "League")
             </p>
         </div>
         <div class="col-xs-7">

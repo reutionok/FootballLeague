@@ -14,14 +14,6 @@ namespace FootballLeague.Controllers
         {
             return View();
         }
-        public IActionResult GetLeagues()
-        {
-            JSONReadWrite readWrite = new JSONReadWrite();
-            List<League> leagues = JsonConvert.DeserializeObject<List<League>>(readWrite.Read("en.1.json", "data"));
-            leagues.AddRange(JsonConvert.DeserializeObject<List<League>>(readWrite.Read("en.2.json", "data")));
-            // leagues.AddRange(JsonConvert.DeserializeObject<List<League>>(readWrite.Read("en.3.json", "data")));
-            return View(leagues);
-
-        }
+       
     }
 }
